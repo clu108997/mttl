@@ -1,6 +1,7 @@
 from functools import partial
 
 import numpy as np
+import random
 from datasets import Dataset, concatenate_datasets
 
 from mttl.models.library.dataset_library import DatasetLibrary
