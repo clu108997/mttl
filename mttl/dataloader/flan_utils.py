@@ -27,7 +27,7 @@ def gen_from_iterable_dataset(iterable_ds):
     yield from iterable_ds
 
 
-def download_flan(split="train", download_size=-1, cutoff=10_000, verbose=True):
+def download_flan(split="train", download_size=-1, cutoff=10_000, verbose=True, subset_size=20):
     dataset_name = "chiayewken/flan-v2"
 
     if download_size <= 0:
@@ -45,7 +45,6 @@ def download_flan(split="train", download_size=-1, cutoff=10_000, verbose=True):
     print("Num Tasks: ", len(task_names))
 
     # randomly select a subset of task to reduce run time
-    subset_size = 20
     task_names = random.sample(task_names, subset_size)
 
     all_datasets = []
