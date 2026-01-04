@@ -44,6 +44,10 @@ def download_flan(split="train", download_size=-1, cutoff=10_000, verbose=True):
     task_names = dataset.unique("task_name")
     print("Num Tasks: ", len(task_names))
 
+    # randomly select a subset of task to reduce run time
+    subset_size = 20
+    task_names = random.sample(task_names, subset_size)
+
     all_datasets = []
     for task_name in task_names:
         print("Processing task: ", task_name)
